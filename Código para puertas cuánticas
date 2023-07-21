@@ -1,1 +1,26 @@
+from qiskit import QuantumCircuit
+
+#Puerta CNOT
+qc = QuantumCircuit(2, 2)
+qc.x(0)
+qc.cx(0,1)  # CNOT controlled by qubit 0 and targeting qubit 1
+qc.measure([0,1], [0,1])
+display(qc.draw())     
+
+job = sim.run(qc)      # run the experiment
+result = job.result()  # get the results
+# interpret the results as a "counts" dictionary
+print("Result: ", result.get_counts())
+
+#Puerta X
+
+qc = QuantumCircuit(3, 3)
+qc.x([0,1])  
+qc.measure([0,1,2], [0,1,2])
+qc.draw()   
+job = sim.run(qc)      
+result = job.result()  
+result.get_counts() 
+
+
 
